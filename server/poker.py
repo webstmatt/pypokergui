@@ -113,6 +113,7 @@ class PokerWebSocketHandler(tornado.websocket.WebSocketHandler):
             if GM.has_game_finished(global_game_manager.latest_messages): break
             action, amount = global_game_manager.ask_action_to_ai_player(
                     global_game_manager.next_player_uuid)
+            raw_input("Press Enter to continue...")
             global_game_manager.update_game(action, amount)
             MM.broadcast_update_game(self, global_game_manager, self.sockets, MODE_SPEED)
 
